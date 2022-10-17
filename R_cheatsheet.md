@@ -33,6 +33,12 @@ MyMatrix <- cbind(matrix1, rowVecotr) # bindet neue column
 MyMatrix <- rbind(matrix1, rowVecotr) # bindet neue row 
 ```
 
+### Table
+Tables aus Datenframes können schnellen Überblick schaffen von Daten (Nominal od. Ordinal) und ihren Proportionen
+![image](https://user-images.githubusercontent.com/25742415/196188238-1b1f3789-fc4b-4e50-81e5-86f67ba5bb52.png)
+```R
+prop.table(mytable, INT) #INT => rows add to 1, column add to 1
+```
 ### Factor levels 
 Nominal: Without implied order (Elephant, Giraffe…) 
 Ordinal: natural order (School Degree, First Class – Second, …) 
@@ -112,3 +118,32 @@ renameSheet(my_book, sheet=4,newName="summary")
 
 saveWorkbook(my_book, file="renamed.xlsx") 
 ```
+## Categorial Data
+### Library (dplyr)
+Wichtiges Zeichen %>%
+Nimmt die Variable des vorherigen Ausdrucks
+
+Beispiel mit Faktoren
+Nimmt im ersten den Dataframe comics, nimmt in nächsten Zeile filter() als data comics$align und dann dropt dann leere levels die wir mit dem filter herausgelöscht haben
+```R
+comics_filtered <- comics %>%
+  filter(align != "Reformed Criminals") %>%
+  droplevels()
+```
+## Plotting ggplot2
+### Bar Chart
+Bar Chart that have Bars not stacked, but besides each other
+![image](https://user-images.githubusercontent.com/25742415/196186575-8fe795d5-46f5-4f6a-8a80-29bed9aea959.png)
+```R
+ggplot(data,aes(x = x_axis_data, fill = y_axis_data)) + 
+  geom_bar(position = "dodge")
+```
+Bar Chart mit proportionalen Daten die den Graph füllen
+![image](https://user-images.githubusercontent.com/25742415/196191228-30557431-a941-4675-b34d-ce44742a9c49.png)
+
+```R 
+  ggplot(data,aes(x = x_axis_data, fill = y_axis_data)) + 
+  geom_bar(position = "fill")+
+  ylab("proportion") #ylab => all data proportions should add up to 1
+```
+
