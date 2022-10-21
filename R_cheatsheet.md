@@ -72,6 +72,11 @@ Subset(myData, subset = colname<1) #if colname values < 1 => TRUE, dann in Tabel
 Order(mydata$durchmesser) #orders column 
 ```
 
+Filtering a data frame with filter()
+```R
+mydata2 <- mydata %>% filter(p-value < 0.05)
+```
+
 ## Import Data to R
 ### Library(read) 
 ```R
@@ -153,3 +158,6 @@ Takes each Bar and represent it in a single Barchart side-by-side
   ggplot(comics, aes(x = align)) + geom_bar() + facet_wrap(~ gender)
 ```
 ![grafik](https://user-images.githubusercontent.com/25742415/197186141-4d03c1b1-fb05-4d91-ab29-1fccfe5633f0.png)
+
+## Density plot
+geom_density
