@@ -130,8 +130,8 @@ comics_filtered <- comics %>%
   filter(align != "Reformed Criminals") %>%
   droplevels()
 ```
-## Plotting ggplot2
-### Bar Chart
+# Plotting ggplot2
+## Bar Chart
 Bar Chart that have Bars not stacked, but besides each other
 ![image](https://user-images.githubusercontent.com/25742415/196186575-8fe795d5-46f5-4f6a-8a80-29bed9aea959.png)
 ```R
@@ -146,4 +146,10 @@ Bar Chart mit proportionalen Daten die den Graph füllen
   geom_bar(position = "fill")+
   ylab("proportion") #ylab => all data proportions should add up to 1
 ```
+Faceting
+Takes each Bar and represent it in a single Barchart side-by-side
 
+```R 
+  ggplot(comics, aes(x = align)) + geom_bar() + facet_wrap(~ gender)
+```
+![grafik](https://user-images.githubusercontent.com/25742415/197186141-4d03c1b1-fb05-4d91-ab29-1fccfe5633f0.png)
