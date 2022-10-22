@@ -75,6 +75,17 @@ Order(mydata$durchmesser) #orders column
 Filtering a data frame with filter()
 ```R
 mydata2 <- mydata %>% filter(p-value < 0.05)
+
+# Filter for Asia, add column indicating outliers
+gap_asia <- gap2007 %>%
+  filter(continent == "Asia") %>%
+  mutate(is_outlier = lifeExp < 50)
+
+# Remove outliers, create box plot of lifeExp
+gap_asia %>%
+  filter(!is_outlier) %>%
+  ggplot(aes(x = 1, y = lifeExp)) +
+  geom_boxplot()
 ```
 ![grafik](https://user-images.githubusercontent.com/25742415/197328708-c5fdf878-7ebc-4997-949b-5231f37dcb1d.png)
 
@@ -84,6 +95,8 @@ Adds new variables and preserves existing ones; New variables overwrite existing
 ```R
 mutate(log_pop = log(pop))
 ```
+
+
 ## Import Data to R
 ### Library(read) 
 ```R
