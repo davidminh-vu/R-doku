@@ -76,6 +76,8 @@ Filtering a data frame with filter()
 ```R
 mydata2 <- mydata %>% filter(p-value < 0.05)
 ```
+![grafik](https://user-images.githubusercontent.com/25742415/197328708-c5fdf878-7ebc-4997-949b-5231f37dcb1d.png)
+
 
 ### Mutate (adding new Columns by calculating of other columns)
 Adds new variables and preserves existing ones; New variables overwrite existing variables of the same name. 
