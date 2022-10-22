@@ -207,6 +207,11 @@ IQR()
 ```
 
 ### Group by and summarize
+Macht eine Table mit den Daten, columns sind sd, iqr, n()
+die var in group_by sollte eine categoriale sein
+
+![grafik](https://user-images.githubusercontent.com/25742415/197330901-0f5baad9-26b6-4f15-be27-7e2df1ae5277.png)
+
 ```R
 gap2007 %>%
   group_by(continent) %>%
@@ -218,4 +223,3 @@ gap2007 %>%
   ggplot(aes(x = lifeExp, fill = continent)) +
   geom_density(alpha = 0.3)
 ```
-
