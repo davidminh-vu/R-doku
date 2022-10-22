@@ -77,6 +77,11 @@ Filtering a data frame with filter()
 mydata2 <- mydata %>% filter(p-value < 0.05)
 ```
 
+### Mutate (adding new Columns by calculating of other columns)
+Adds new variables and preserves existing ones; New variables overwrite existing variables of the same name. 
+```R
+mutate(log_pop = log(pop))
+```
 ## Import Data to R
 ### Library(read) 
 ```R
