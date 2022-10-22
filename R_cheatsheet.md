@@ -181,3 +181,41 @@ Takes each Bar and represent it in a single Barchart side-by-side
 
 ## Density plot
 geom_density
+
+## Data Pipe filtering
+```R
+mydf %>% 
+  filter(column_to_filter < 25000) %>%
+  ggplot(aes(x=x_axis_data)) +
+  geom_histogram() +
+  xlim(c(90, 550)) +
+  ggtitle("Title of Diagram")
+```
+
+### Statistik
+Mean: Durschschnitt Summe/n
+Median: Mitte der Daten
+Mode: Im Datensatz meist beobachtete Zahl
+
+Var: Rechnet die Abstand die durchschnittlich bei jeden Wert ist. Nimmt ((x - mean)^2)/sum(n). Warum ^2? weil wenn die Werte negativ sind, würde es immer um die 0 schwanken was kein sinn macht. Deshalb hoch zwei um die minus zahlen weg zu bekommen
+Standard Deviation: Standartabweichung => sqrt(var) um überhaupt sinn aus Var machen zu können
+```R
+var() # nur um sd auszurechen
+sd() # sqrt von var
+
+IQR()
+```
+
+### Group by and summarize
+```R
+gap2007 %>%
+  group_by(continent) %>%
+  summarize(sd(lifeExp),
+            IQR(lifeExp),
+            n())
+            
+gap2007 %>%
+  ggplot(aes(x = lifeExp, fill = continent)) +
+  geom_density(alpha = 0.3)
+```
+
