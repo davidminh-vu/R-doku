@@ -179,8 +179,27 @@ Takes each Bar and represent it in a single Barchart side-by-side
 ```
 ![grafik](https://user-images.githubusercontent.com/25742415/197186141-4d03c1b1-fb05-4d91-ab29-1fccfe5633f0.png)
 
+Using color palett for segments for ordinal variable
+```R
+# Plot education, filled by vocabulary
+ggplot(Vocab, aes(education, fill = vocabulary)) +
+  # Add a bar layer with position "fill"
+  geom_bar(position = "fill") +
+  # Add a brewer fill scale with default palette
+  scale_fill_brewer(palette = "Set1")
+```
 ## Density plot
 geom_density
+
+## Themes
+All possible Themes to edit the text layers on a plot
+Accessed by i.e. 
+```R
+ggplot(foo, aes(x,y))
+  + theme(axis.title = "Title of Plot") #element.text for original text
+```
+
+![grafik](https://user-images.githubusercontent.com/25742415/199590768-d1123ab7-3777-4db5-a117-641bc8a01ba9.png)
 
 ## Data Pipe filtering
 ```R
