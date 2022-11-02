@@ -191,6 +191,23 @@ ggplot(Vocab, aes(education, fill = vocabulary)) +
 ## Density plot
 geom_density
 
+## Segment Plot
+Hardcore Segment Plot kein plan
+```R
+# Set the color scale
+palette <- brewer.pal(5, "RdYlBu")[-(2:4)]
+
+# Add a title and caption
+ggplot(gm2007, aes(x = lifeExp, y = country, color = lifeExp)) +
+  geom_point(size = 4) +
+  geom_segment(aes(xend = 30, yend = country), size = 2) +
+  geom_text(aes(label = round(lifeExp,1)), color = "white", size = 1.5) +
+  scale_x_continuous("", expand = c(0,0), limits = c(30,90), position = "top") +
+  scale_color_gradientn(colors = palette) +
+  labs(title="Highest and lowest life expectancies, 2007", caption="Source: gapminder")
+```
+![grafik](https://user-images.githubusercontent.com/25742415/199599759-f10f46fd-5229-4fd1-8b0d-d5335310deb2.png)
+
 ## Themes
 All possible Themes to edit the text layers on a plot
 Accessed by i.e. 
@@ -201,7 +218,6 @@ ggplot(foo, aes(x,y))
   axis.ticks= element.blank())  #element.text for original text
 ```
 ![grafik](https://user-images.githubusercontent.com/25742415/199590768-d1123ab7-3777-4db5-a117-641bc8a01ba9.png)
-
 
 Predefined Themes added with +theme_* (classic is best)
 
