@@ -196,11 +196,24 @@ All possible Themes to edit the text layers on a plot
 Accessed by i.e. 
 ```R
 ggplot(foo, aes(x,y))
-  + theme(axis.title = "Title of Plot") #element.text for original text
+  + theme(axis.title = "Title of Plot", 
+  legend.position = "none",
+  axis.ticks= element.blank())  #element.text for original text
 ```
-
 ![grafik](https://user-images.githubusercontent.com/25742415/199590768-d1123ab7-3777-4db5-a117-641bc8a01ba9.png)
 
+
+Predefined Themes added with +theme_* (classic is best)
+
+```R
+ggplot(foo, aes(x,y))
+  + theme_classic()
+```
+
+Set default Theme for all plots to come
+```R
+theme_set(myTheme)
+```
 ## Data Pipe filtering
 ```R
 mydf %>% 
