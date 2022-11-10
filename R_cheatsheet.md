@@ -96,6 +96,11 @@ Adds new variables and preserves existing ones; New variables overwrite existing
 mutate(log_pop = log(pop))
 ```
 
+### Scaling
+Mean / standardivation => results normialzing data
+```R
+scale(df)
+```
 
 ## Import Data to R
 ### Library(read) 
