@@ -1,6 +1,7 @@
 ## Scales of Measure
 ![image](https://user-images.githubusercontent.com/25742415/196103314-00a41e51-c6dd-4ca1-a771-fe464ffc6281.png)
 ![grafik](https://user-images.githubusercontent.com/25742415/208306464-4fe78463-0ad6-4ccd-a6e8-a8afdf5fde7b.png)
+![grafik](https://user-images.githubusercontent.com/25742415/208321169-5b9c6f86-91e6-4b3b-8d01-f85a1d8ad987.png)
 
 ## Datatypes
 ![grafik](https://user-images.githubusercontent.com/25742415/208246240-e19c12ed-525e-43ef-93d3-c396758900db.png)
