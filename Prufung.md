@@ -79,7 +79,7 @@ t.test(Monetary~ Satisfaction, data= dataset)
 
 ![grafik](https://user-images.githubusercontent.com/25742415/208307066-21d7e4a9-1962-46b1-90de-dd35be13b6d1.png)
 
-### Anova Test
+### Anova Test (analysis of variance)
 Compare differences in means between groups (3 or more). Is at least one group different from the others?
 Dependent variable should be continuous (interval or ratio).
 
