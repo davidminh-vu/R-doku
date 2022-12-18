@@ -1,5 +1,6 @@
 ## Scales of Measure
 ![image](https://user-images.githubusercontent.com/25742415/196103314-00a41e51-c6dd-4ca1-a771-fe464ffc6281.png)
+![grafik](https://user-images.githubusercontent.com/25742415/208306464-4fe78463-0ad6-4ccd-a6e8-a8afdf5fde7b.png)
 
 ## Datatypes
 ![grafik](https://user-images.githubusercontent.com/25742415/208246240-e19c12ed-525e-43ef-93d3-c396758900db.png)
@@ -21,6 +22,7 @@
 ![grafik](https://user-images.githubusercontent.com/25742415/208253680-922c3f6c-f4be-4602-8e77-42e5ab582555.png)
 
 ### Chi^2 Test
+Meant to test the probability of independence of a distribution of data. Will not tell details about relationship between them.
 ![grafik](https://user-images.githubusercontent.com/25742415/208253697-c214c7b3-e4c6-482e-a110-7bfcde304205.png)
 
 #### Chi Test of approximation
@@ -55,11 +57,72 @@ chisq.test(table(rfm_clean$Satisfaction,rfm_clean$NRecency_5),correct=F)$expecte
 chisq.test(table(rfm_clean$Satisfaction,rfm_clean$NRECENCY_5), correct=F)
 ```
 H0 rejected, Variables depend on each other
+
 ![grafik](https://user-images.githubusercontent.com/25742415/208254140-c6d52852-da17-4efe-9a08-eb00cc563323.png)
 
 #### Cramer's V
 Measure of strength of association between two nominal variables between 0-1. 0 no assiciation, 1 strong.
 U4 Folie
 
-## Summary
+### Two sample t-test
+Tests if means across two groups differ. One continuous variable, observed in both groups.
 
+![grafik](https://user-images.githubusercontent.com/25742415/208307004-1a61a7a5-b85b-4726-9d20-fb22742ef589.png)
+
+H0: Means do not differ
+H1: Means differ
+
+```R
+t.test(Monetary~ Satisfaction, data= dataset)
+```
+
+![grafik](https://user-images.githubusercontent.com/25742415/208307066-21d7e4a9-1962-46b1-90de-dd35be13b6d1.png)
+
+### Anova Test
+Compare differences in means between groups (3 or more). Is at least one group different from the others?
+Dependent variable should be continuous (interval or ratio).
+
+Why not more T-Test => increases Type I (false positive) error
+```R
+result<-aov(metricvariable~groupingvariable,data=data)
+summary(result)
+```
+![grafik](https://user-images.githubusercontent.com/25742415/208309625-d0e02843-1ea0-4cc2-b280-8468ad7553f9.png)
+
+#### ETA 2
+Explains how much variation is explained by the model (like R^2 in Linear Regression)
+```R
+library(effectsize)
+eta_squared(result, partial = FALSE)
+```
+
+#### TurkeyHSD
+Post hoc procedure to see which groups differ
+Test if H0: group1 = group2, group1 = group 3, group2=group3
+
+```R
+TukeyHSD(aov2)
+```
+![grafik](https://user-images.githubusercontent.com/25742415/208310086-c9958c8b-2ccd-404b-973f-ace9a8a2aecd.png)
+
+### Pearson Correlation analysis
+Lineare association (r)
+1 to -1, 1 perfect positive correlation, -1 perfect negative corrletion
+
+![grafik](https://user-images.githubusercontent.com/25742415/208311582-879c64de-fb15-41f0-abee-6b5e90b1f13f.png)
+
+```R
+cor(rfm_profit$OverallSatisfaction, rfm_profit$Profit)
+[1] 0. 556653
+
+# r
+rcorr(rfm_profit$OverallSatisfaction,rfm_profit$Profit)
+
+#p-value
+cor.test(rfm_profit$OverallSatisfaction,rfm_profit$Profit)
+```
+### Linear
+![grafik](https://user-images.githubusercontent.com/25742415/208312180-78e53128-c401-437f-a969-822c29f588f1.png)
+
+#### R^2 and Adjusted R^2
+How good a model fits. R^2 rises with more variables, even if they don't contribute => adjusted R^2 accounts for that
